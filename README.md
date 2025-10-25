@@ -13,6 +13,8 @@ A React Native mobile application built with Expo that displays real-time COVID-
 - **Year Labels**: Smart x-axis labeling showing only when years change
 
 ## 📱 Screenshots
+<img width="1179" height="2556" alt="Simulator Screenshot - iPhone 15 - 2025-10-25 at 16 16 26" src="https://github.com/user-attachments/assets/de6d36c1-a1af-4d7e-87b0-c1210b7f37ed" />
+<img width="1179" height="2556" alt="Simulator Screenshot - iPhone 15 - 2025-10-25 at 16 17 46" src="https://github.com/user-attachments/assets/159cb86f-bbbf-416d-bdee-76cd503fefbb" />
 
 The app includes:
 - Scrollable list of countries with flags and basic stats
