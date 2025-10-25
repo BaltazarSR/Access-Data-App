@@ -1,50 +1,131 @@
-# Welcome to your Expo app 👋
+# COVID-19 Data Visualization App 📊
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native mobile application built with Expo that displays real-time COVID-19 statistics for countries worldwide. The app features an interactive country list, detailed country views, and historical case data visualization with line charts.
 
-## Get started
+## 🌟 Features
 
-1. Install dependencies
+- **Country List View**: Browse all countries with COVID-19 statistics
+- **Country Flags**: Visual representation with flag images
+- **Real-time Data**: Fetches live data from the disease.sh API
+- **Detailed Statistics**: View cases, deaths, and recovered counts per country
+- **Historical Charts**: Interactive line charts showing case trends over time
+- **Clean UI**: Modern interface with smooth navigation
+- **Year Labels**: Smart x-axis labeling showing only when years change
 
+## 📱 Screenshots
+
+The app includes:
+- Scrollable list of countries with flags and basic stats
+- Navigation to detailed country views
+- Line charts with historical case data
+- Clean, readable data visualization
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- Expo CLI
+- iOS Simulator (for Mac) or Android Emulator
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/BaltazarSR/Access-Data-App.git
+   cd Access-Data-App
+   ```
+
+2. Install dependencies
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. Start the development server
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+4. Run on your preferred platform
+   - Press `i` for iOS simulator
+   - Press `a` for Android emulator
+   - Scan QR code with Expo Go app on your physical device
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🛠️ Tech Stack
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Framework**: React Native with Expo
+- **Language**: TypeScript
+- **Navigation**: Expo Router (file-based routing)
+- **Charts**: react-native-chart-kit
+- **HTTP Client**: Axios
+- **Icons**: @expo/vector-icons (Ionicons)
+- **API**: [disease.sh COVID-19 API](https://disease.sh/)
 
-## Get a fresh project
+## 📁 Project Structure
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+├── app/                        # Expo Router pages
+│   ├── _layout.tsx            # Root layout with global styles
+│   ├── index.tsx              # Home screen entry point
+│   └── countryDetail.tsx      # Country detail route
+├── src/
+│   ├── controllers/           # Business logic layer
+│   │   └── covidController.ts # Data processing and transformation
+│   ├── models/                # TypeScript interfaces
+│   │   └── CovidCountry.ts    # Data type definitions
+│   ├── services/              # API service layer
+│   │   ├── covidAPIService.ts
+│   │   └── historicalDataService.ts
+│   └── views/                 # UI components
+│       ├── covidCountriesView.tsx
+│       └── countryDetailView.tsx
+├── assets/                    # Images and static files
+└── components/                # Reusable UI components
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🏗️ Architecture
 
-## Learn more
+The app follows the **MVC (Model-View-Controller)** pattern:
 
-To learn more about developing your project with Expo, look at the following resources:
+- **Models**: TypeScript interfaces defining data structures
+- **Views**: React components for UI presentation
+- **Controllers**: Business logic and data transformation
+- **Services**: API communication layer
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+This separation ensures clean code, maintainability, and testability.
 
-## Join the community
+## 📊 API Endpoints Used
 
-Join our community of developers creating universal apps.
+- `GET /v3/covid-19/countries` - Fetch all countries data
+- `GET /v3/covid-19/historical/{country}?lastdays=all` - Fetch historical timeline data
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🎨 Key Features Implementation
+
+### Data Sampling
+Historical data is sampled (every 30th day) to optimize chart performance and readability, displaying approximately one data point per month.
+
+### Smart Year Labels
+The x-axis intelligently displays year labels only when a new year begins, reducing visual clutter while maintaining context.
+
+### Navigation
+Uses Expo Router for seamless navigation between country list and detail views with proper parameter passing.
+
+## 🤝 Contributing
+
+This is an educational project. Feel free to fork and experiment!
+
+## 📄 License
+
+This project is for educational purposes.
+
+## 👨‍💻 Author
+
+**Baltazar Servin**
+- GitHub: [@BaltazarSR](https://github.com/BaltazarSR)
+
+## 🙏 Acknowledgments
+
+- COVID-19 data provided by [disease.sh](https://disease.sh/)
+- Built with [Expo](https://expo.dev/)
+- Charts powered by [react-native-chart-kit](https://github.com/indiespirit/react-native-chart-kit)
